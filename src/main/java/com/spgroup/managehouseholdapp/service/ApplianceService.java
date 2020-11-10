@@ -234,7 +234,7 @@ public class ApplianceService {
 	    applianceTrans.setSerialNumber(searchInput.getSerialNumber());
 	    applianceTrans.setModel(searchInput.getModel());
 	    
-	    ExampleMatcher customExampleMatcher = ExampleMatcher.matching()
+	    ExampleMatcher customExampleMatcher = ExampleMatcher.matchingAny()
 	    	      .withMatcher("serialNumber", ExampleMatcher.GenericPropertyMatchers.contains().ignoreCase())
 	    	      .withMatcher("brand", ExampleMatcher.GenericPropertyMatchers.contains().ignoreCase())
 	    	      .withMatcher("model", ExampleMatcher.GenericPropertyMatchers.contains().ignoreCase());
