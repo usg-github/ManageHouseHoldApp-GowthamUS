@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  mysql-container:
+    image: mysql:latest
+    environment: 
+      - MYSQL_ROOT_HOST: '%'
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_DATABASE=testdb
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test123
+  managehousehold-docker-container:
+    image: managehousehold-docker-container
+    ports:
+     - 80:8080
+    build:
+      context: ./
+      dockerfile : Dockerfile
+    depends_on:
+      - mysql-container
+  networks:
+   default:
+     external: true
+     name: foo
+      
